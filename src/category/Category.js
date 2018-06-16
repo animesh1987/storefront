@@ -35,11 +35,11 @@ class Category extends Component {
 
 // Maps state data to props.
 const mapStateToPros = state => {
-  console.log(state);
   return ({
-  products: state.category.products,
-  loading: state.category.loading
-})};
+    products: state.category.products,
+    loading: state.category.loading
+  });
+};
 
 // Maps dispatch actions to props.
 const mapDispatchToProps = dispatch => ({

@@ -9,11 +9,18 @@ const initialState = {
   cart: [],
 };
 
-const header = (state = initialState, action) => {
+const cart = (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.SHOW_CART_POPUP: {
       return {
         ...state
+      }
+    }
+
+    case actionTypes.ADD_TO_CART: {
+      return {
+        ...state,
+        cart: [...state.cart, ...action.cart]
       }
     }
 
@@ -22,4 +29,4 @@ const header = (state = initialState, action) => {
   }
 };
 
-export default header;
+export default cart;
