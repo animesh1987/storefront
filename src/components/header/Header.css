@@ -1,0 +1,23 @@
+.Header {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+
+.Header__navigation-links > span {
+  margin: 0 5px;
+}
+
+.Header span {
+  color: rgba(1, 1, 1, 0.87);
+  font-size: .6em;
+  font-weight: bold;
+}
+
+.Header i  {
+  cursor: pointer;
+  font-size: 1.5em;
+  vertical-align: middle;
+}
