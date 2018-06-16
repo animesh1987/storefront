@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { displayCartPopup } from '../../store/actions/header';
+import { displayCartPopup } from '../../store/actions/cart';
 import './Header.css';
 
 class Header extends Component {
@@ -28,7 +28,7 @@ class Header extends Component {
 // Map component state to props.
 const mapStateToPros = state => {
   return ({
-    cart: state.header.cart,
+    cart: state.cart.cart,
   })
 };
 

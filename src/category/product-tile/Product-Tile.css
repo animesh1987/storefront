@@ -1,0 +1,35 @@
+.Product-Tile {
+  cursor: pointer;
+  margin: 8px;
+  text-decoration: none;
+  width: 30%;
+}
+
+.Product-Tile__image {
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  height: 175px;
+  position: relative;
+}
+
+.Product-Tile p {
+  font-size: .875em;
+  margin-bottom: 0;
+}
+
+.Product-Tile a {
+  margin-top: 10px;
+}
+
+.Product-Tile p:last-child {
+  margin-bottom: 20px;
+}
+
+.Product-Tile p:nth-child(2n) {
+  color: rgba(1, 1, 1, 0.54);
+}
+
+.Product-Tile p:nth-child(2n + 1) {
+  color: rgba(1, 1, 1, 0.87);
+}

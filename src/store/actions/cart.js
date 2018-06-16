@@ -8,3 +8,16 @@ import { actionTypes } from './actionTypes';
 export const displayCartPopup = () => ({
   type: actionTypes.SHOW_CART_POPUP
 });
+
+
+/**
+ * Add product to cart.
+ * @constant
+ */
+export const addToCart = product => dispatch => {
+  const cart = [product];
+  dispatch({
+    type: actionTypes.ADD_TO_CART,
+    cart
+  });
+};

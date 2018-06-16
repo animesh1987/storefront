@@ -4,26 +4,26 @@ import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, combineReducers,compose } from 'redux';
 import thunk from 'redux-thunk';
-import headerReducer from './store/reducers/header';
+import cartReducer from './store/reducers/cart';
+import categoryReducer from './store/reducers/category';
 import './index.css';
 import App from './App';
 
-// Combine reducers to create root.
 const rootReducer = combineReducers({
-  header: headerReducer
+  cart: cartReducer,
+  category: categoryReducer
 });
 
-// Create store with reducer and middleware.
 const store = createStore(
   rootReducer,
   compose(applyMiddleware(thunk))
 );
-
+  
 const app = (
   <Provider store={store}>
-    <BrowserRouter>
-        <App />
-    </BrowserRouter>
+      <BrowserRouter>
+          <App />
+      </BrowserRouter>
   </Provider>
 );
 
