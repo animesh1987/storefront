@@ -16,20 +16,7 @@ class Category extends Component {
   addToCart(params) {
     let { product, quantity } = params;
     let cart = [...this.props.cart];
-    const productInCart = this.props.cart.find(
-      cartProduct => cartProduct.id === product.id);
-    if (this.props.cart.length > 0 && !!productInCart) {
-      const initialQuantity = productInCart.quantity;
-      const indexOfProduct = cart.indexOf(productInCart);
-      cart.splice(indexOfProduct, 1);
-      quantity = quantity + initialQuantity;
-      cart.push(Object.assign(product, {quantity}));
-    } else {
-      cart = [...this.props.cart, ...[
-        Object.assign(product, {quantity})]
-      ];
-    }
-    this.props.addToCart(cart);
+    this.props.addToCart({cart, product, quantity});
   }
 
   render() {

@@ -21,21 +21,7 @@ class Product extends Component {
   addToCart(params) {
     let { product, quantity } = params;
     let cart = [...this.props.cart];
-    const productInCart = this.props.cart.find(
-      cartProduct => cartProduct.id === product.id)
-    console.log('aa',productInCart);
-    if (this.props.cart.length > 0 && !!productInCart) {
-      const initialQuantity = productInCart.quantity;
-      const indexOfProduct = cart.indexOf(productInCart);
-      cart.splice(indexOfProduct, 1);
-      quantity = quantity + initialQuantity;
-      cart.push(Object.assign(product, {quantity}));
-    } else {
-      cart = [...this.props.cart, ...[
-        Object.assign(product, {quantity})]
-      ];
-    }
-    this.props.addToCart(cart);
+    this.props.addToCart({cart, product, quantity});
   }
 
   // Increments product quantity to add in cart.
@@ -52,7 +38,7 @@ class Product extends Component {
     if (quantity >= 1) {
       this.setState({quantity});
     } else {
-      alert('Must have one quantity for product');
+      alert('Oops! You need to have one product to add.');
     }
   };
 

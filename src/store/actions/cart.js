@@ -12,10 +12,25 @@ export const displayCartPopup = () => ({
 
 /**
  * Add product to cart.
- * @params {Object} cart Updated cart.
+ * @params {Object} params Present cart, product and quantity.
  * @constant
  */
-export const addToCart = cart => dispatch => {
+export const addToCart = params => dispatch => {
+  let { product, quantity } = params;
+  let cart = [...params.cart];
+  const productInCart = params.cart.find(
+    cartProduct => cartProduct.id === product.id);
+  if (params.cart.length > 0 && !!productInCart) {
+    const initialQuantity = productInCart.quantity;
+    const indexOfProduct = cart.indexOf(productInCart);
+    cart.splice(indexOfProduct, 1);
+    quantity = quantity + initialQuantity;
+    cart.push(Object.assign(product, {quantity}));
+  } else {
+    cart = [...params.cart, ...[
+      Object.assign(product, {quantity})]
+    ];
+  }
   dispatch({
     type: actionTypes.ADD_TO_CART,
     cart

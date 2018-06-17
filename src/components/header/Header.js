@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { removeFromCart } from '../../store/actions/cart';
 import { CartPopup } from '../cart-popup/CartPopup';
 import './Header.css';
@@ -33,8 +34,10 @@ class Header extends Component {
   render() {
     return (
       <header className="Header">
-        <img src={`${process.env.PUBLIC_URL}/media/logo.png`}
-          className="App-logo" alt="logo" />
+        <Link to={'/'}>
+          <img src={`${process.env.PUBLIC_URL}/media/logo.png`}
+            className="App-logo" alt="logo" />
+        </Link>
         <div className="Header__navigation-links">
           <span>HOME</span>
           <span>SHOP <i className="material-icons">arrow_drop_down</i></span>
