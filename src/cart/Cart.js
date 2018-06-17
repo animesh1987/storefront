@@ -46,6 +46,7 @@ class Cart extends Component {
 }
 
 const mapStateToPros = state => {
+  // Get total of cart and pass it to props.
   const cartTotal = state.cart.cart.length > 0 ?
     state.cart.cart.map(product => product.quantity * product.price)
     .reduce((a, b) => a + b) : 0
