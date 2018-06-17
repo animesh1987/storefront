@@ -19,7 +19,6 @@ class Product extends Component {
   }
 
   addToCart(params) {
-    console.log('cadca');
     let { product, quantity } = params;
     let cart = [...this.props.cart];
     const productInCart = this.props.cart.find(

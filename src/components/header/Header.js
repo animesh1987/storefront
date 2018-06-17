@@ -65,7 +65,6 @@ class Header extends Component {
 }
 
 const mapStateToPros = state => {
-  console.log('header', state.cart);
   return ({
     cart: state.cart.cart,
   })

@@ -1,3 +1,89 @@
 .Cart {
+  background: rgb(245, 245, 245);
+  border-top: 1px solid lightgray;
+  padding: 50px;
+}
 
+.Cart h2 {
+  font-size: 40px;
+  font-weight: normal;
+}
+
+.Cart__container {
+  background: white;
+  margin: 3em 2.5em 0;
+  padding: 3em 1.5em; 
+  width: 90%;
+}
+
+.Cart__container th, .Cart__container td {
+  color: rgba(1, 1, 1, .54);
+  font-size: .875em;
+  text-transform: uppercase;
+  width: 15%;
+}
+
+.Cart__container th {
+  font-size: .900em;
+  font-weight: 500;
+}
+
+.Cart__container-header th:first-child, .Cart-Product td:first-child {
+  width: 60%;
+  text-align: start;
+}
+
+.Cart__container thead .Cart__container-header {
+  border-bottom: 2px solid lightgray;
+  display: flex;
+  padding-bottom: 30px;
+}
+
+.Cart__container tbody {
+  display: flex;
+  flex-direction: row;
+  max-width: 10px 0;
+}
+
+.Cart__container tbody td img {
+  height: 60px;
+  margin-right: 10px;
+  width: 100px;
+}
+
+.Cart__container tbody td span:nth-child(2n) {
+  color: rgba(1, 1, 1, .87);
+  margin-top: 5px;
+}
+
+.Cart-Product {
+  align-items: center;
+  margin: 15px 0;
+  width: 100%;
+}
+
+.Cart-Product__actions {
+  justify-content: center;
+}
+
+.Cart-Product__actions > span {
+  background: lightgray;
+  color: gray;
+  line-height: 30px;
+  margin-right: 5px;
+  padding: 10px 20px;
+}
+
+.Cart-Product__actions i {
+  background: lightgray;
+  color: gray;
+  cursor: pointer;
+}
+
+.Cart-Product__actions i:first-child {
+  margin-bottom: 2px;
+}
+
+.Cart-Product i {
+  cursor: pointer;
 }
