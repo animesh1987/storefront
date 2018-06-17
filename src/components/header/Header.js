@@ -16,7 +16,11 @@ class Header extends Component {
           <span>MORE <i className="material-icons">arrow_drop_down</i></span>
         </div>
         <div>
-          <span>MY CART ({this.props.cart.length})</span>
+          <span>MY CART ({
+            this.props.cart.length > 0 ?
+              this.props.cart.map(product => product.quantity)
+                .reduce((a, b) => a + b) : 0
+            })</span>
           <i className="material-icons"
             onClick={() => this.props.displayCartPopup()}>arrow_drop_down</i>
         </div>
@@ -25,14 +29,12 @@ class Header extends Component {
   }
 }
 
-// Map component state to props.
 const mapStateToPros = state => {
+  console.log('header', state.cart);
   return ({
     cart: state.cart.cart,
   })
 };
-
-// Map component actions state to props.
 const mapDispatchToProps = dispatch => ({
   displayCartPopup: () => dispatch(displayCartPopup())
 });

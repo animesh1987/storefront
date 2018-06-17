@@ -13,6 +13,25 @@ class Category extends Component {
     this.props.getProducts();
   }
 
+  addToCart(params) {
+    let { product, quantity } = params;
+    let cart = [...this.props.cart];
+    const productInCart = this.props.cart.find(
+      cartProduct => cartProduct.id === product.id)
+    if (this.props.cart.length > 0 && !!productInCart) {
+      const initialQuantity = productInCart.quantity;
+      const indexOfProduct = cart.indexOf(productInCart);
+      cart.splice(indexOfProduct, 1);
+      quantity = quantity + initialQuantity;
+      cart.push(Object.assign(product, {quantity}));
+    } else {
+      cart = [...this.props.cart, ...[
+        Object.assign(product, {quantity})]
+      ];
+    }
+    this.props.addToCart(cart);
+  }
+
   render() {
     return this.props.loading ? 
       <div className="Category flex flex-column">
@@ -24,7 +43,7 @@ class Category extends Component {
         <div className="Category__products-list flex flex-row flex-wrap">
           {this.props.products.map(product => 
             <ProductTile
-              addToCart={() => this.props.addToCart(product)}
+              addToCart={() => this.addToCart({product, quantity: 1})}
               key={product.id}
               product={product}/>
           )}
@@ -37,14 +56,14 @@ class Category extends Component {
 const mapStateToPros = state => {
   return ({
     products: state.category.products,
-    loading: state.category.loading
-  });
-};
+    loading: state.category.loading,
+    cart: state.cart.cart
+})};
 
 // Maps dispatch actions to props.
 const mapDispatchToProps = dispatch => ({
   getProducts: () => dispatch(getProducts()),
-  addToCart: (product) => dispatch(addToCart(product))
+  addToCart: (params) => dispatch(addToCart(params))
 });
 
 export default connect(mapStateToPros, mapDispatchToProps)(Category);

@@ -20,7 +20,7 @@ const cart = (state = initialState, action) => {
     case actionTypes.ADD_TO_CART: {
       return {
         ...state,
-        cart: [...state.cart, ...action.cart]
+        cart: action.cart
       }
     }
 

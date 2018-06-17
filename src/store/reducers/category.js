@@ -9,6 +9,7 @@ const initialState = {
   products: [],
   loading: true,
   cart: [],
+  product: {},
 };
 
 const category = (state = initialState, action) => {

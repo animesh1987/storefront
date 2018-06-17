@@ -12,10 +12,10 @@ export const displayCartPopup = () => ({
 
 /**
  * Add product to cart.
+ * @params {Object} params Object containing product with quantity to be added.
  * @constant
  */
-export const addToCart = product => dispatch => {
-  const cart = [product];
+export const addToCart = cart => dispatch => {
   dispatch({
     type: actionTypes.ADD_TO_CART,
     cart
