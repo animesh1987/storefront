@@ -1,0 +1,60 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders product page correctly 1`] = `
+<tr
+  className="Cart-Product flex flex-row"
+>
+  <td
+    className="flex flex-row"
+  >
+    <img
+      alt="Blue Stripe Stoneware Plate"
+      src="/media/blue-stripe-stoneware-plate.jpg"
+    />
+    <div
+      className="flex flex-column"
+    >
+      <span>
+        Kiriko
+      </span>
+      <span>
+        Blue Stripe Stoneware Plate
+      </span>
+    </div>
+  </td>
+  <td
+    className="Cart-Product__actions flex flex-row"
+  >
+    <span />
+    <div
+      className="flex flex-column"
+    >
+      <i
+        className="material-icons"
+        onClick={[Function]}
+      >
+        add
+      </i>
+      <i
+        className="material-icons"
+        onClick={[Function]}
+      >
+        remove
+      </i>
+    </div>
+  </td>
+  <td>
+    $
+    NaN
+    .00
+  </td>
+  <td>
+    <i
+      className="material-icons"
+      onClick={[Function]}
+    >
+      close
+    </i>
+  </td>
+</tr>
+`;
