@@ -4,6 +4,11 @@
   padding: 50px;
 }
 
+.Cart table {
+  width: 100%;
+  border-bottom: 2px solid lightgray;
+}
+
 .Cart h2 {
   font-size: 40px;
   font-weight: normal;
@@ -40,9 +45,7 @@
 }
 
 .Cart__container tbody {
-  display: flex;
-  flex-direction: row;
-  max-width: 10px 0;
+  margin: 10px 0;
 }
 
 .Cart__container tbody td img {
@@ -86,4 +89,37 @@
 
 .Cart-Product i {
   cursor: pointer;
+}
+
+.Cart__overview-container {
+  border-bottom: 2px solid lightgray;
+  padding-bottom: 20px;
+}
+
+.Cart__overview {  
+  color: rgba(1, 1, 1, .54);
+  margin-left: 55%;
+  text-align: start;
+  padding-right: 3em;
+  width: 40%;
+}
+
+.Cart__overview p {
+  font-size: .875em;
+  font-weight: 500;
+  margin: 10px 0 0;
+}
+
+.Cart__overview p.flex {
+  justify-content: space-between;
+}
+
+.Cart_actions {
+  padding-top: 20px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.Cart_actions a {
+  color: rgba(1, 1, 1, .8);
 }
