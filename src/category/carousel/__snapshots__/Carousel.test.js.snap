@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders product page correctly 1`] = `
+<div
+  className="Category__carousel"
+  style={
+    Object {
+      "background": "url(/media/plates-header.jpg)",
+      "backgroundSize": "cover",
+      "height": "35vh",
+    }
+  }
+>
+  <div
+    className="Category__tagline-container"
+  >
+    <div
+      className="Category__tagline"
+    >
+      <span
+        className="App-title"
+      >
+        Plates
+      </span>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam at ante elementum, porta neque ac, accumsan erat. Etiam sit amet ligula vitae ipsum volutpat vestibulum. Ut quis velit lorem. Nunc placerat nec.
+      </p>
+    </div>
+  </div>
+</div>
+`;
