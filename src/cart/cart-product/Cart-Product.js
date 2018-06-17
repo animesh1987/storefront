@@ -23,7 +23,8 @@ export const CartProduct = (props) => {
       </td>
       <td>${props.product.quantity * props.product.price}.00</td>
       <td>
-        <i className="material-icons">close</i>
+        <i onClick={() => props.removeFromCart(props.product.id)}
+          className="material-icons">close</i>
       </td>
     </tr>
   )

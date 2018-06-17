@@ -18,16 +18,16 @@ export const displayCartPopup = () => ({
 export const addToCart = params => dispatch => {
   let { product, quantity } = params;
   let cart = [...params.cart];
-  const productInCart = params.cart.find(
+  const productInCart = cart.find(
     cartProduct => cartProduct.id === product.id);
-  if (params.cart.length > 0 && !!productInCart) {
+  if (cart.length > 0 && !!productInCart) {
     const initialQuantity = productInCart.quantity;
     const indexOfProduct = cart.indexOf(productInCart);
     cart.splice(indexOfProduct, 1);
     quantity = quantity + initialQuantity;
     cart.push(Object.assign(product, {quantity}));
   } else {
-    cart = [...params.cart, ...[
+    cart = [...cart, ...[
       Object.assign(product, {quantity})]
     ];
   }
@@ -39,10 +39,15 @@ export const addToCart = params => dispatch => {
 
 /**
  * Calls reducer to remove product from cart.
- * @params {Object} cart Updated cart.
+ * @params {Object} params Present cart and product id.
  * @constant
  */
-export const removeFromCart = cart => dispatch => {
+export const removeFromCart = params => dispatch => {
+  let cart = [...params.cart];
+  const productInCart = cart.find(
+    product => product.id === params.id);
+  const indexOfProduct = cart.indexOf(productInCart);
+  cart.splice(indexOfProduct, 1);
   dispatch({
     type: actionTypes.REMOVE_PRODUCT,
     cart

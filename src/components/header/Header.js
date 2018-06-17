@@ -23,11 +23,7 @@ class Header extends Component {
   // Removes product from cart.
   removeProduct(id) {
     let cart = [...this.props.cart];
-    const productInCart = this.props.cart.find(
-      product => product.id === id);
-    const indexOfProduct = cart.indexOf(productInCart);
-    cart.splice(indexOfProduct, 1);
-    this.props.removeFromCart(cart);
+    this.props.removeFromCart({ cart, id});
   }
 
   render() {

@@ -6,6 +6,13 @@ import { CartProduct } from './cart-product/Cart-Product';
 import './Cart.css';
 
 class Cart extends Component {
+
+  // Removes product from cart.
+  removeProduct(id) {
+    let cart = [...this.props.cart];
+    this.props.removeFromCart({ cart, id});
+  }
+
   render() {
     return (
       <div className="Cart">
@@ -23,6 +30,7 @@ class Cart extends Component {
               <tbody className="flex flex-column">
                 {this.props.cart.map(product =>
                   <CartProduct key={product.id}
+                    removeFromCart={(id) => this.removeProduct(id)}
                     product={product} />)}
               </tbody>
             </table>
@@ -50,6 +58,7 @@ const mapStateToPros = state => {
   const cartTotal = state.cart.cart.length > 0 ?
     state.cart.cart.map(product => product.quantity * product.price)
     .reduce((a, b) => a + b) : 0;
+
   return ({
     cart: state.cart.cart,
     total: cartTotal,
