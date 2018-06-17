@@ -37,41 +37,41 @@ class Cart extends Component {
   render() {
     return (
       <div className="Cart">
-          <h2>Shopping Cart</h2>
-          <div className="Cart__container">
-            <table>
-              <thead>
-                <tr className="Cart__container-header">
-                  <th>Product</th>
-                  <th>Quantity</th>
-                  <th>Total</th>
-                  <th>Action</th>
-                </tr>
-              </thead>
-              <tbody className="flex flex-column">
-                {this.props.cart.map(product =>
-                  <CartProduct key={product.id}
-                    updateProductQuantity={(params) => this.updateCart(params)}
-                    removeProductFromCart={(id) => this.removeProduct(id)}
-                    product={product} />)}
-              </tbody>
-            </table>
-            <div className="Cart__overview-container">
-              <div className="Cart__overview flex flex-column">
-                <p>Cart Overview</p>
-                <p className="flex flex-row">
-                  Subtotal <span>${this.props.total}.00</span></p>
-                <p className="flex flex-row">
-                  Total <span>${this.props.total}.00 AUD</span></p>
-              </div>
-            </div>
-            <div className="flex flex-row Cart_actions">
-              <Link to={'/'}>Continue Shopping</Link>
-              <button disabled={this.props.total === 0}>
-                Checkout(${this.props.total}.00)
-              </button>
+        <h2>Shopping Cart</h2>
+        <div className="Cart__container">
+          <table>
+            <thead>
+              <tr className="Cart__container-header">
+                <th>Product</th>
+                <th>Quantity</th>
+                <th>Total</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody className="flex flex-column">
+              {this.props.cart.map(product =>
+                <CartProduct key={product.id}
+                  updateProductQuantity={(params) => this.updateCart(params)}
+                  removeProductFromCart={(id) => this.removeProduct(id)}
+                  product={product} />)}
+            </tbody>
+          </table>
+          <div className="Cart__overview-container">
+            <div className="Cart__overview flex flex-column">
+              <p>Cart Overview</p>
+              <p className="flex flex-row">
+                Subtotal <span>${this.props.total}.00</span></p>
+              <p className="flex flex-row">
+                Total <span>${this.props.total}.00 AUD</span></p>
             </div>
           </div>
+          <div className="flex flex-row Cart_actions">
+            <Link to={'/'}>Continue Shopping</Link>
+            <button disabled={this.props.total === 0}>
+              Checkout(${this.props.total}.00)
+            </button>
+          </div>
+        </div>
       </div>
     );
   }
