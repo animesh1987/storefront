@@ -17,7 +17,7 @@ class Category extends Component {
     let { product, quantity } = params;
     let cart = [...this.props.cart];
     const productInCart = this.props.cart.find(
-      cartProduct => cartProduct.id === product.id)
+      cartProduct => cartProduct.id === product.id);
     if (this.props.cart.length > 0 && !!productInCart) {
       const initialQuantity = productInCart.quantity;
       const indexOfProduct = cart.indexOf(productInCart);

@@ -24,6 +24,13 @@ const cart = (state = initialState, action) => {
       }
     }
 
+    case actionTypes.REMOVE_PRODUCT: {
+      return {
+        ...state,
+        cart: action.cart
+      }
+    }
+
     default:
       return state;
   }

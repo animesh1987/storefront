@@ -17,7 +17,8 @@ export const CartPopup = (props) => {
                 <p>{product.brand}</p>
                 <p>${product.price}.00</p>
               </div>
-              <i className="material-icons">close</i>
+              <i onClick={() => props.removeProduct(product.id)}
+                className="material-icons">close</i>
             </div>
           )}
         </div>

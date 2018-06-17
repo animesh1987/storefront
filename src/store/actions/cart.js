@@ -12,12 +12,24 @@ export const displayCartPopup = () => ({
 
 /**
  * Add product to cart.
- * @params {Object} params Object containing product with quantity to be added.
+ * @params {Object} cart Updated cart.
  * @constant
  */
 export const addToCart = cart => dispatch => {
   dispatch({
     type: actionTypes.ADD_TO_CART,
+    cart
+  });
+};
+
+/**
+ * Calls reducer to remove product from cart.
+ * @params {Object} cart Updated cart.
+ * @constant
+ */
+export const removeFromCart = cart => dispatch => {
+  dispatch({
+    type: actionTypes.REMOVE_PRODUCT,
     cart
   });
 };
