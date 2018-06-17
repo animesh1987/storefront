@@ -67,7 +67,9 @@ class Cart extends Component {
             </div>
             <div className="flex flex-row Cart_actions">
               <Link to={'/'}>Continue Shopping</Link>
-              <button>Checkout(${this.props.total}.00)</button>
+              <button disabled={this.props.total === 0}>
+                Checkout(${this.props.total}.00)
+              </button>
             </div>
           </div>
       </div>

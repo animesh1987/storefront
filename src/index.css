@@ -33,6 +33,11 @@ button, .button {
   transition: background 0.2s ease;
 }
 
+button:disabled {
+  background: gray;
+  pointer-events: none;
+}
+
 button:hover, .button:hover {
   background: rgba(1, 1, 1, 1);
 }
