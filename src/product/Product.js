@@ -90,7 +90,6 @@ class Product extends Component {
 }
 
 const mapStateToPros = state => {
-  console.log(state);
   return ({ 
     product: state.category.product,
     loading: state.category.loading,

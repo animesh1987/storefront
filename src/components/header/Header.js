@@ -22,7 +22,6 @@ class Header extends Component {
 
   // Removes product from cart.
   removeProduct(id) {
-    console.log('Remove Product', id);
     let cart = [...this.props.cart];
     const productInCart = this.props.cart.find(
       product => product.id === id);
@@ -45,31 +44,37 @@ class Header extends Component {
           <span>MORE <i className="material-icons">arrow_drop_down</i></span>
         </div>
         <div>
-          <span>MY CART ({
-            this.props.cart.length > 0 ?
-              this.props.cart.map(product => product.quantity)
-                .reduce((a, b) => a + b) : 0
-            })</span>
+          <span>MY CART ({this.props.quantity})</span>
           <i className="material-icons"
             onClick={() => this.displayCartPopup()}>arrow_drop_down</i>
         </div>
         {this.state.showPopup ? <div onClick={() => this.displayCartPopup()}
             className="Popup-background"></div>: null}
         {this.state.showPopup ?
-            <CartPopup
-              removeProduct={(id) => this.removeProduct(id)}
-              totalPrice={ this.props.cart.length > 0 ?
-                this.props.cart.map(product => product.quantity * product.price)
-                .reduce((a, b) => a + b) : 0}
-              cart={this.props.cart}/> : null}
+          <CartPopup
+            removeProduct={(id) => this.removeProduct(id)}
+            totalPrice={this.props.total}
+            cart={this.props.cart}/> : null}
       </header>
     );
   }
 }
 
 const mapStateToPros = state => {
+  // Get total of cart and pass it to props.
+  const cartTotal = state.cart.cart.length > 0 ?
+    state.cart.cart.map(product => product.quantity * product.price)
+    .reduce((a, b) => a + b) : 0;
+
+  // Get total of number of products in cart.
+  const cartQuantity = state.cart.cart.length > 0 ?
+    state.cart.cart.map(product => product.quantity)
+    .reduce((a, b) => a + b) : 0;
+
   return ({
     cart: state.cart.cart,
+    total: cartTotal,
+    quantity: cartQuantity,
   })
 };
 
