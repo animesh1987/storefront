@@ -4,17 +4,17 @@
 
 Install the dependencies by running
 ```
-npm install
+npm install / yarn install
 ```
 
 To serve the application, run
 ```
-npm start
+npm start  / yarn start
 ```
 
 To run the test suite, run
 ```
-npm test
+npm test / yarn test
 ```
 
 ### Question
