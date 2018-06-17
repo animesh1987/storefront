@@ -1,5 +1,22 @@
 # Storefront Single-Page App
 
+### To Test
+
+Install the dependencies by running
+```
+npm install
+```
+
+To serve the application, run
+```
+npm start
+```
+
+To run the test suite, run
+```
+npm test
+```
+
 ### Question
 Using React, create a single-page app which renders a mock storefront that matches the provided screenshots, using the
 supplied JSON and media files. The `products.json` file can be accessed by
@@ -55,18 +72,3 @@ making a GET request to `'/products.json'`
 ### Instructions
 This assignment requires [Node 6+](https://nodejs.org/en/) and was created using
 [create-react-app](https://github.com/facebook/create-react-app).
-
-Once installed, you should install the dependencies by running
-```
-npm install
-```
-
-To serve the application, run
-```
-npm start
-```
-
-To run the test suite, run
-```
-npm test
-```
