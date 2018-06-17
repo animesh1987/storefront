@@ -1,0 +1,96 @@
+@keyframes fade-in {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+
+.Cart-popup {
+  animation-name: fade-in;
+  animation-duration: .350s;
+  background: white;
+  box-shadow: 0 5px 5px -3px rgba(0,0,0,.2),
+    0 8px 10px 1px rgba(0,0,0,.14),
+    0 3px 14px 2px rgba(0,0,0,.12);
+  padding: 15px;
+  position: absolute;
+  right: 12px;
+  text-align: start;
+  top: 60px;
+  width: 300px;
+  z-index: 10;
+}
+
+.Cart-popup .Cart-popup__row {
+  margin-bottom: 10px;
+}
+
+.Cart-popup .Cart-popup__row img {
+  height: 75px;
+  width: 75px;
+}
+
+.Cart-popup .Cart-popup__row .flex p {
+  margin: 0 0 5px 10px;
+  text-transform: uppercase;
+}
+
+.Cart-popup .Cart-popup__row .flex p:first-child {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.Cart-popup .Cart-popup__row .flex p:first-child span {
+  color: rgba(1, 1, 1, .54);
+  font-weight: normal;
+  font-size: 12px;
+}
+
+.Cart-popup .Cart-popup__row .flex p:nth-child(2n) {
+  color: rgba(1, 1, 1, .54);
+  font-weight: bold;
+  font-size: 12px;
+}
+
+.Cart-popup .Cart-popup__row .flex p:nth-child(3) {
+  color: rgba(1, 1, 1, .87);
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.Cart-popup .Cart-popup__row.flex i {
+  color: rgba(1, 1, 1, .54);
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 16px;
+  position: absolute;
+  right: 10px;
+}
+
+.Cart-popup__actions {
+  text-align: center;
+}
+
+.Cart-popup__actions .button {
+  background: white;
+  border: 1px solid rgba(1, 1, 1, .8);
+  color: rgba(1, 1, 1, .8);
+  font-weight: bold;
+  text-decoration: none;
+  width: 35%;
+}
+
+.Cart-popup__actions button {
+  width: 45%;
+}
+
+.Cart-popup .Cart-popup__total {
+  border-top: 1px solid lightgray;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.Cart-popup .Cart-popup__total span {
+  color: rgba(1, 1, 1, .54);
+  font-size: 1em;
+  font-weight: normal;
+}

@@ -5,7 +5,6 @@
 */
 export const actionTypes = {
   ADD_TO_CART: 'ADD_TO_CART',
-  SHOW_CART_POPUP: 'SHOW_CART_POPUP',
   GET_PRODUCTS: 'GET_PRODUCTS',
   GET_PRODUCT_BY_ID: 'GET_PRODUCT_BY_ID',
 };

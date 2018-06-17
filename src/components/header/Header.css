@@ -4,6 +4,7 @@
   flex-direction: row;
   justify-content: space-between;
   padding: 0 20px;
+  position: relative;
 }
 
 .Header__navigation-links > span {
@@ -20,4 +21,13 @@
   cursor: pointer;
   font-size: 1.5em;
   vertical-align: middle;
+}
+
+.Popup-background {
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0px;
+  z-index: 5;
 }
