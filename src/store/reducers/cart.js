@@ -1,10 +1,10 @@
 import { actionTypes } from '../actions/actionTypes';
 
-/*
-  Initial state of header.
-  @constant
-  @type {Object}
-*/
+/**
+ * Initial state of cart.
+ * @type {Object}
+ * @constant
+ */
 const initialState = {
   cart: [],
 };

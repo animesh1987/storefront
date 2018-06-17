@@ -20,7 +20,10 @@ class Header extends Component {
     this.setState({showPopup: !this.state.showPopup});
   }
 
-  // Removes product from cart.
+  /**
+   * Removes product from cart.
+   * @param {number} id Id of product.
+   */
   removeProduct(id) {
     let cart = [...this.props.cart];
     this.props.removeProductFromCart({ cart, id});

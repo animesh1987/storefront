@@ -1,8 +1,8 @@
-/*
-  All types of actions.
-  @constant
-  @type {Object}
-*/
+/**
+ * All types of actions.
+ * @constant
+ * @type {Object} 
+ */
 export const actionTypes = {
   ADD_TO_CART: 'ADD_TO_CART',
   GET_PRODUCTS: 'GET_PRODUCTS',

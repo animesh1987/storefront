@@ -1,10 +1,10 @@
 import { actionTypes } from '../actions/actionTypes';
 
-/*
-  Initial state of category.
-  @constant
-  @type {Object}
-*/
+/**
+ * Initial state of category.
+ * @type {Object}
+ * @constant
+ */
 const initialState = {
   products: [],
   loading: true,

@@ -13,6 +13,11 @@ class Category extends Component {
     this.props.getProducts();
   }
 
+  /**
+   * Calls reducer to add product to cart.
+   * @param {Object} params Object containing present cart, product to update
+   * and quantity to update by.
+   */
   addToCart(params) {
     let { product, quantity } = params;
     let cart = [...this.props.cart];

@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from 'react-router-dom';
+import { PopupProductItem } from './popup-product-item/PopupProductItem';
 import "./CartPopup.css";
 
 export const CartPopup = (props) => {
@@ -10,16 +11,9 @@ export const CartPopup = (props) => {
       <div className="Cart-popup flex flex-column">
         <div>
           {props.cart.map(product => 
-            <div className="Cart-popup__row flex flex-row" key={product.id}>
-              <img src={`${process.env.PUBLIC_URL}/media/${product.image}`} alt={product.title} />
-              <div className="flex flex-column">
-                <p>{product.title} <span>x {product.quantity}</span></p>
-                <p>{product.brand}</p>
-                <p>${product.price}.00</p>
-              </div>
-              <i onClick={() => props.removeProduct(product.id)}
-                className="material-icons">close</i>
-            </div>
+            <PopupProductItem key={product.id}
+              removeProduct={(id) => props.removeProduct(id)}
+              product={product}/>
           )}
         </div>
         <div className="Cart-popup__total flex flex-row">

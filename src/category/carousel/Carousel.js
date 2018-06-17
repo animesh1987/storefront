@@ -7,7 +7,7 @@ const backgroundImage = {
   backgroundSize: 'cover'
 };
 
-export const Carousel = (props) => {
+export const Carousel = () => {
   return (
     <div className="Category__carousel"
       style={ backgroundImage }>

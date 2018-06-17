@@ -13,10 +13,6 @@ export class ProductTile extends Component {
     };
   }
 
-  goToProduct(event) {
-    event.stopPropagation();
-  }
-
   render() {
     const style = {
       backgroundImage:
@@ -25,7 +21,10 @@ export class ProductTile extends Component {
 
     const overlayClass = this.state.displayOverlay ? 'display-overlay' : '';
 
+    // Sets display of overlay to true on mouse enter.
     const handleMouseEnter = () => this.setState({displayOverlay: true});
+    
+    // Sets display of overlay to false on mouse leave.
     const handleMouseLeave = () => this.setState({displayOverlay: false});
 
     return (
@@ -36,7 +35,6 @@ export class ProductTile extends Component {
           style={style}>
           <Overlay
             id={this.props.product.id}
-            goToProduct={() => this.goToProduct}
             addToCart={this.props.addToCart}
             classToDisplay={`${overlayClass} overlay flex flex-column`} />
         </div>

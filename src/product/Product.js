@@ -18,6 +18,11 @@ class Product extends Component {
     };
   }
 
+  /**
+   * Calls action to add product to cart.
+   * @param {Object} params Object containing product and quantity to
+   * increment by.
+   */
   addToCart(params) {
     let { product, quantity } = params;
     let cart = [...this.props.cart];

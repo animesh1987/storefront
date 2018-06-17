@@ -1,5 +1,4 @@
 import React from 'react';
-import './Cart-Product.css';
 
 export const CartProduct = (props) => {
   const { product } = props;
