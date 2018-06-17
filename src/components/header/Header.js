@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { removeFromCart } from '../../store/actions/cart';
+import { removeProductFromCart } from '../../store/actions/cart';
 import { CartPopup } from '../cart-popup/CartPopup';
 import './Header.css';
 
@@ -23,7 +23,7 @@ class Header extends Component {
   // Removes product from cart.
   removeProduct(id) {
     let cart = [...this.props.cart];
-    this.props.removeFromCart({ cart, id});
+    this.props.removeProductFromCart({ cart, id});
   }
 
   render() {
@@ -75,7 +75,7 @@ const mapStateToPros = state => {
 };
 
 const mapDispatchToProps = dispatch => ({
-  removeFromCart: (params) => dispatch(removeFromCart(params))
+  removeProductFromCart: (params) => dispatch(removeProductFromCart(params))
 });
 
 export default connect(mapStateToPros, mapDispatchToProps)(Header);

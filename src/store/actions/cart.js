@@ -1,18 +1,8 @@
 import { actionTypes } from './actionTypes';
 
-/*
-  Calls the reducer to display the cart popup.
-  @constant
-  @type {Function}
-*/
-export const displayCartPopup = () => ({
-  type: actionTypes.SHOW_CART_POPUP
-});
-
-
 /**
  * Add product to cart.
- * @params {Object} params Present cart, product and quantity.
+ * @param {Object} params Present cart, product and quantity.
  * @constant
  */
 export const addToCart = params => dispatch => {
@@ -25,7 +15,9 @@ export const addToCart = params => dispatch => {
     const indexOfProduct = cart.indexOf(productInCart);
     cart.splice(indexOfProduct, 1);
     quantity = quantity + initialQuantity;
-    cart.push(Object.assign(product, {quantity}));
+    // Insert the product at initial index after update.
+    cart.splice(indexOfProduct, 0,
+      Object.assign(product, {quantity}));
   } else {
     cart = [...cart, ...[
       Object.assign(product, {quantity})]
@@ -38,11 +30,36 @@ export const addToCart = params => dispatch => {
 };
 
 /**
- * Calls reducer to remove product from cart.
- * @params {Object} params Present cart and product id.
+ * Decrease product quantity by 1.
+ * @param {Object} params Present cart, product and quantity.
  * @constant
  */
-export const removeFromCart = params => dispatch => {
+export const decreaseProductQuantity = params => dispatch => {
+  let { product, quantity } = params;
+  let cart = [...params.cart];
+  const productInCart = cart.find(
+    cartProduct => cartProduct.id === product.id);
+  let initialQuantity = productInCart.quantity;
+  const indexOfProduct = cart.indexOf(productInCart);
+  cart.splice(indexOfProduct, 1);
+  if (initialQuantity > 1) {
+    quantity = quantity + initialQuantity;
+    // Insert the product at initial index after update.
+    cart.splice(indexOfProduct, 0,
+      Object.assign(product, {quantity}));
+  }
+  dispatch({
+    type: actionTypes.ADD_TO_CART,
+    cart
+  });
+};
+
+/**
+ * Calls reducer to remove product from cart.
+ * @param {Object} params Present cart and product id.
+ * @constant
+ */
+export const removeProductFromCart = params => dispatch => {
   let cart = [...params.cart];
   const productInCart = cart.find(
     product => product.id === params.id);

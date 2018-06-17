@@ -1,16 +1,37 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { removeFromCart } from '../store/actions/cart';
+import { removeProductFromCart, addToCart, decreaseProductQuantity } from '../store/actions/cart';
 import { CartProduct } from './cart-product/Cart-Product';
 import './Cart.css';
 
 class Cart extends Component {
 
-  // Removes product from cart.
+  /**
+   * Removes product from cart.
+   * @param {number} id Id of product to remove.
+   */
   removeProduct(id) {
     let cart = [...this.props.cart];
-    this.props.removeFromCart({ cart, id});
+    this.props.removeProductFromCart({ cart, id});
+  }
+
+  /**
+   * Updates product quantity in cart.
+   * @param {Object} params Object containing operation to
+   * perform (Increment/Decrement) and product.
+   */
+  updateCart(params) {
+    let quantity;
+    const { product, type } = params;
+    let cart = [...this.props.cart];
+    if (type === 'increment') {
+      quantity = 1;
+      this.props.addToCart({ cart, product, quantity });
+    } else {
+      quantity = -1;
+      this.props.decreaseProductQuantity({ cart, product, quantity });
+    }
   }
 
   render() {
@@ -30,7 +51,8 @@ class Cart extends Component {
               <tbody className="flex flex-column">
                 {this.props.cart.map(product =>
                   <CartProduct key={product.id}
-                    removeFromCart={(id) => this.removeProduct(id)}
+                    updateProductQuantity={(params) => this.updateCart(params)}
+                    removeProductFromCart={(id) => this.removeProduct(id)}
                     product={product} />)}
               </tbody>
             </table>
@@ -66,7 +88,9 @@ const mapStateToPros = state => {
 };
 
 const mapDispatchToProps = dispatch => ({
-  removeFromCart: (params) => dispatch(removeFromCart(params))
+  removeProductFromCart: (params) => dispatch(removeProductFromCart(params)),
+  addToCart: (params) => dispatch(addToCart(params)),
+  decreaseProductQuantity: (params) => dispatch(decreaseProductQuantity(params))
 });
 
 export default connect(mapStateToPros, mapDispatchToProps)(Cart);
