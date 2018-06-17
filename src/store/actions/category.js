@@ -29,3 +29,23 @@ export const getProducts = () => async(dispatch) => {
     console.log(e);
   }
 };
+
+/*
+  Fetch product by for the id passed.
+  @constant
+*/
+export const getProductById = params => async(dispatch) => {
+  try {
+    const response = await callApi(PRODUCTS);
+    const data =  await response.json();
+    const product = data.find(product => product.id === params.id);
+    console.log(product);
+    return dispatch({
+      type: actionTypes.GET_PRODUCT_BY_ID,
+      product,
+      loading: false
+    });
+  } catch(e) {
+    console.log(e);
+  }
+};

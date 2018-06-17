@@ -21,6 +21,14 @@ const category = (state = initialState, action) => {
       }
     }
 
+    case actionTypes.GET_PRODUCT_BY_ID: {
+      return {
+        ...state,
+        product: action.product,
+        loading: action.loading,
+      }
+    }
+
     default:
       return state;
   }

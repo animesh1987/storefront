@@ -1,3 +1,86 @@
 .Product {
+  border-top: 1px solid lightgray;
+  padding: 0 5em 0 7.5em;
+}
 
+.Product h4 {
+  font-size: .875em;
+  padding-top: 1em;
+  text-transform: uppercase;
+}
+
+.Product h4 span {
+  color: rgba(1, 1, 1, .54);
+}
+
+.Product__detail-container {
+  padding-top: 2.5em;
+}
+
+.Product__image {
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  height: 450px;
+  width: 60%;
+}
+
+.Product__detail {
+  margin-left: 20px;
+  text-align: center;
+  width: 40%;
+}
+
+.Product__detail p {
+  margin: 10px 0;
+}
+
+.Product__detail-brand {
+  color: rgba(1, 1, 1, .54)
+}
+
+.Product__detail-title {
+  color: rgba(1, 1, 1, .87);
+  font-size: 2em;
+}
+
+.Product__detail-price {
+  color: rgba(1, 1, 1, .54);
+  font-size: 1.2em;
+}
+
+.Product__detail-description {
+  border-bottom: 1px solid lightgray;
+  color: rgba(1, 1, 1, .54);
+  font-size: .8em;
+  padding-bottom: 25px;
+}
+
+.Product__cart-actions {
+  justify-content: center;
+  padding-top: 10px;
+}
+
+.Product__cart-actions > span {
+  background: lightgray;
+  color: gray;
+  line-height: 30px;
+  margin-right: 5px;
+  padding: 10px 20px;
+}
+
+.Product__cart-actions i {
+  background: lightgray;
+  color: gray;
+  cursor: pointer;
+}
+
+.Product__cart-actions i:first-child {
+  margin-bottom: 2px;
+}
+
+.Product__cart-actions button {
+  height: 50px;
+  margin: 0 10px 0;
+  max-height: 50px;
 }
